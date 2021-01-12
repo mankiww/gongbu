@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,19 +6,23 @@
     <title>random</title>
   </head>
   <body>
+    <input type="number" value="100">
+    <button>click</button>
     <script type="text/javascript">
+    const input = document.querySelector("input");
+    const btn = document.querySelector("button");
+    
       function randomNumber() {
-        var num = 100
+        var num = input.value;
         var a = Math.round(Math.random()*num);
         const body = document.querySelector("body");
         const para = document.createElement("p");
         para.innerText = a;
         body.appendChild(para);
-        console.log(a);
       }
       
       function init() {
-        document.addEventListener("click", randomNumber)
+        btn.addEventListener("click", randomNumber)
       }
     
       init();
