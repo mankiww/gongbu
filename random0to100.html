@@ -4,25 +4,46 @@
   <head>
     <meta charset="utf-8">
     <title>random</title>
+    <style>
+      html, body { height: 100%;}
+      div { 
+        height: 90%;
+        }
+    </style>
   </head>
   <body>
-    <input type="number" value="100">
-    <button>click</button>
+    <form>    
+      <input type="text">
+    </form>
+    <div><p id="start"></p></div>
     <script type="text/javascript">
-    const input = document.querySelector("input");
-    const btn = document.querySelector("button");
+    const div = document.querySelector("div");
+    const form = document.querySelector("form");
+    const input = form.querySelector("input");
+    const body = document.querySelector("body");
+
     
+      function nextLine(event) {
+        event.preventDefault();
+        const num = input.value;
+        const fin = document.createTextNode(`(~${num})`);
+        const newLine = document.createElement("br");
+        if(div.lastChild.id !== "start"){
+          div.appendChild(newLine)
+        };
+        div.appendChild(fin);
+      }
+
       function randomNumber() {
         var num = input.value;
         var a = Math.round(Math.random()*num);
-        const body = document.querySelector("body");
-        const para = document.createElement("p");
-        para.innerText = a;
-        body.appendChild(para);
+        const para = document.createTextNode(` ${a}`)
+        div.appendChild(para);
       }
       
       function init() {
-        btn.addEventListener("click", randomNumber)
+        div.addEventListener("click", randomNumber);
+        form.addEventListener("submit", nextLine);
       }
     
       init();
