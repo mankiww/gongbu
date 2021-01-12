@@ -1,0 +1,69 @@
+body {
+    background-color: darkgrey;
+}
+
+button {
+    outline: 0;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#carousel {
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+#img-container {
+    display: inline-block;
+    width: 600px;
+    height: 200px;
+    margin: 20px;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+#img {
+    width:100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.dot {
+    background-color: transparent;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.clicked {
+    opacity: 1;
+}
+
+.dot:hover {
+    opacity: 1;
+}
+
+.arrow {
+    position: absolute;
+    top: 45%;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: darkgrey;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.arrow:hover {
+    opacity: 0.5;
+}
+
+#left {
+    padding-left: 3px;
+    margin-right: 10px;
+}
+
+#right{
+    padding-right: 3px;
+}

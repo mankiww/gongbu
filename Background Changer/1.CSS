@@ -1,0 +1,34 @@
+:root {
+    --main-text-color: black;
+}
+.c {
+    position: relative;
+    top: 40%;
+    text-align: center;
+}
+
+#name {
+    font-size: 80px;
+    color: var(--main-text-color);
+}
+
+#changer {
+    padding: 12px;
+    width: 150px;
+    font-size: 24px;
+    background-color: transparent;
+    color: var(--main-text-color);
+    border-radius: 5px;
+    border: 1px solid var(--main-text-color);
+    outline: 0;
+    cursor: pointer;
+}
+
+#changer:hover{
+    font-style: italic;
+}
+
+#changer:active{
+    font-weight: bold;
+    border: 3px solid var(--main-text-color);
+}
