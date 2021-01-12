@@ -5,28 +5,45 @@
     <meta charset="utf-8">
     <title>random</title>
     <style>
-      html, body { height: 100%;}
+      html, body { 
+        height: 100%;
+        text-align: center;
+      }         
       div { 
         height: 90%;
         }
+      form {
+        display: inline-block;
+        margin-top: 100px;
+
+      }
+      input {
+        width: 50px;
+      }
     </style>
   </head>
   <body>
-    <form>    
-      <input type="text">
-    </form>
-    <div><p id="start"></p></div>
+      <form>    
+        from <input id="from" type="text">
+      </form>
+      <form>
+        to <input id ="to" type="text">
+      </form>
+      <div><p id="start"></p></div>
     <script type="text/javascript">
     const div = document.querySelector("div");
-    const form = document.querySelector("form");
-    const input = form.querySelector("input");
+    const form = document.querySelectorAll("form");
+    const arrForm = Array.from(form);
+    const from = document.querySelector("#from");
+    const to = document.querySelector("#to");
     const body = document.querySelector("body");
 
     
       function nextLine(event) {
         event.preventDefault();
-        const num = input.value;
-        const fin = document.createTextNode(`(~${num})`);
+        var stnum = from.value;
+        var endnum = to.value;
+        const fin = document.createTextNode(`(${stnum}~${endnum})`);
         const newLine = document.createElement("br");
         if(div.lastChild.id !== "start"){
           div.appendChild(newLine)
@@ -35,15 +52,23 @@
       }
 
       function randomNumber() {
-        var num = input.value;
-        var a = Math.round(Math.random()*num);
+        var stnum = from.value;
+        var endnum = to.value;
+        if (stnum === ''){
+          stnum = 0;
+        }
+        var a = Math.round(Math.random()*(endnum - stnum))+parseInt(stnum);
         const para = document.createTextNode(` ${a}`)
-        div.appendChild(para);
+        if(endnum !== ''){
+          div.appendChild(para);
+        }
       }
       
       function init() {
         div.addEventListener("click", randomNumber);
-        form.addEventListener("submit", nextLine);
+        arrForm.forEach(function(element){
+          element.addEventListener("submit", nextLine);
+        });
       }
     
       init();
