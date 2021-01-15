@@ -76,6 +76,7 @@ function letsBaseball(event){
     if (strikeCount === 3){
         alert("축하합니다! 퍼펙트!")
         f.append("승리");
+        f.classList.add("win")
         createRandom();
         life = 10;
 
@@ -83,6 +84,7 @@ function letsBaseball(event){
     if (life === 0){
         alert("10번의 기회를 모두 소진하였습니다. 패배!")
         f.append(`패배 ${randomArr}`);
+        f.classList.add("lose")
         createRandom();
         life = 10;
     }

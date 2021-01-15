@@ -1,3 +1,14 @@
 fieldset {
     display: inline-block;
+    border: none;
+    border-radius: 10px;
+    background-color: #ddffdd;
+}
+
+.lose {
+    background-color: #ffdddd;
+}
+
+.win {
+    background-color: #d4eaff;
 }
