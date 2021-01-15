@@ -1,5 +1,7 @@
+
 fieldset {
     display: inline-block;
+    vertical-align: top;
     border: none;
     border-radius: 10px;
     background-color: #ddffdd;

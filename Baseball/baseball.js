@@ -12,35 +12,54 @@ function loadRandom(){
 
 function createRandom(){
     const randomArr = [];
-    for (var i = 0; i < 3; i++){
-        randomArr[i] = Math.floor(Math.random()*10);
-    }
+    do {
+        var a = Math.floor(Math.random()*10);
+        if (!randomArr.includes(a)) {
+            randomArr.push(a);
+        }
+    } while (randomArr.length < 3)
     localStorage.setItem(ENEMY, JSON.stringify(randomArr))
     const fieldSet = document.createElement("fieldset");
     score.insertBefore(fieldSet, score.firstChild);
 }   
 
-function countStrike(user, com) {
-    var result = 0;
+function count(user, com) {
+    var strike = 0,
+    ball = 0;
     for(var i = 0; i < user.length; i++){
-        if(user[i] === com[i]){
-            result += 1;
-        }
-    }
-    return result;
-}
-
-function countBall(user, com) {
-    var result = 0;
-    for (i of user) {
-        for (j of com) {
-            if (i === j){
-                result += 1;
-                console.log("ball!")
+        for(var j = 0; j < com.length; j++){
+            if(i === j && user[i] === com[j]){
+                strike += 1;
+                break;
+            }
+            if(i !== j  && user[i] === com[j]){
+                ball += 1;
+                continue;
             }
         }
     }
-    return result;
+    life -= 1;
+    const note = document.createTextNode(`${10-life} [${user}]: ${strike}S ${ball}B`);
+    const para = document.createElement("p");
+    const f = score.querySelector("fieldset");
+    para.appendChild(note);
+    f.appendChild(para);
+    input.value = '';
+    if (strike === 3){
+        alert("축하합니다! 퍼펙트!")
+        f.append("승리");
+        f.classList.add("win")
+        createRandom();
+        life = 10;
+
+    }
+    if (life === 0){
+        alert("10번의 기회를 모두 소진하였습니다. 패배!")
+        f.append(`패배 ${com}`);
+        f.classList.add("lose")
+        createRandom();
+        life = 10;
+    }
 }
 
 function alertNotThree(){
@@ -57,38 +76,25 @@ function alertNotThree(){
 
 function letsBaseball(event){
     event.preventDefault();
-    parsedInput = alertNotThree();    
-    randomArr = loadRandom();
-    const strikeCount = countStrike(parsedInput, randomArr);
-    const ballCount = countBall(parsedInput, randomArr) - strikeCount;
+    const parsedInput = alertNotThree();    
+    const randomArr = loadRandom();
+    const filteredInput = []
     if(parsedInput.length !==3) {
         alert("입력값이 세 자리 숫자가 아닙니다");
         input.value = '';
         return 0;
-    }     
-    life -= 1;
-    const note = document.createTextNode(`${10-life} [${parsedInput}]: ${strikeCount}S ${ballCount}B`);
-    const para = document.createElement("p");
-    const f = score.querySelector("fieldset");
-    para.appendChild(note);
-    f.appendChild(para);
-    input.value = '';
-    if (strikeCount === 3){
-        alert("축하합니다! 퍼펙트!")
-        f.append("승리");
-        f.classList.add("win")
-        createRandom();
-        life = 10;
-
     }
-    if (life === 0){
-        alert("10번의 기회를 모두 소진하였습니다. 패배!")
-        f.append(`패배 ${randomArr}`);
-        f.classList.add("lose")
-        createRandom();
-        life = 10;
-    }
-    
+    for (i of parsedInput) {
+        if(!filteredInput.includes(i)){
+            filteredInput.push(i);
+        }
+    }    
+    if (parsedInput.length !== filteredInput.length){
+        alert("중복된 숫자가 입력되었습니다")
+        input.value = '';
+        return 0;
+    }    
+    count(parsedInput, randomArr);      
 }
 
 function init(){
