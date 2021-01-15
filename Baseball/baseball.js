@@ -1,10 +1,17 @@
 const form = document.querySelector("form"),
 input = form.querySelector("input"),
-score = document.querySelector("#result");
+score = document.querySelector("#result"),
+fast = document.querySelector("#fast")
 
 let life = 10;
 
 const ENEMY = 'enemy'
+
+function fastGame(){
+    for(i=0; i<10; i++){
+        count([1,2,3],[3,4,5])
+    }
+}
 
 function loadRandom(){
     return JSON.parse(localStorage.getItem(ENEMY));
@@ -99,6 +106,7 @@ function letsBaseball(event){
 
 function init(){
     form.addEventListener("submit", letsBaseball);
+    fast.addEventListener("click", fastGame);
     createRandom();
 }
 

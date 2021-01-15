@@ -34,3 +34,10 @@ fieldset {
 .win {
     border: 1px solid black;
 }
+
+#fast {
+    position: absolute;
+    opacity: 0;
+}
+
+#fast:hover {opacity: 1;}
