@@ -82,7 +82,7 @@ function letsBaseball(event){
     }
     if (life === 0){
         alert("10번의 기회를 모두 소진하였습니다. 패배!")
-        f.append("패배");
+        f.append(`패배 ${randomArr}`);
         createRandom();
         life = 10;
     }
