@@ -9,6 +9,7 @@ form {
 }
 
 input{
+    text-align: center;
     width: 2em;
     font-size: 100px;
     opacity: 0.5;
