@@ -1,4 +1,24 @@
 
+form {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-top: -60px;
+    margin-left: -190px;
+    text-align: center;
+}
+
+input{
+    width: 2em;
+    font-size: 100px;
+    opacity: 0.5;
+}
+button {
+    font-size: 100px;
+    padding: 0 20px;
+    opacity: 0.5;
+}
+
 fieldset {
     display: inline-block;
     vertical-align: top;
@@ -12,6 +32,5 @@ fieldset {
 }
 
 .win {
-    background-color: mintcream;    
-    border: 1px solid darkgray;
+    border: 1px solid black;
 }
