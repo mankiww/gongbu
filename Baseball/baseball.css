@@ -3,14 +3,15 @@ fieldset {
     display: inline-block;
     vertical-align: top;
     border: none;
-    border-radius: 10px;
-    background-color: #ddffdd;
 }
 
 .lose {
-    background-color: #ffdddd;
+    background-color: black;
+    color: white;
+    border: 1px solid darkgray;
 }
 
 .win {
-    background-color: #d4eaff;
+    background-color: mintcream;    
+    border: 1px solid darkgray;
 }
