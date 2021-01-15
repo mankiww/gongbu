@@ -1,10 +1,8 @@
 
 form {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    margin-top: -60px;
-    margin-left: -190px;
+    top: 200px;
+    left: 150px;
     text-align: center;
 }
 
@@ -37,6 +35,7 @@ fieldset {
 }
 
 #fast {
+    display: none;
     position: absolute;
     opacity: 0;
 }
