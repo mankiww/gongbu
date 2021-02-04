@@ -36,6 +36,9 @@ var config = {
             backgroundColor: color(colorIndex).alpha(0.2).rgbString(),
             borderColor: colorIndex,
             pointBackgroundColor: colorIndex,
+            fill: true,
+            pointRadius: 30,
+            pointHoverRadius: 50,
             data: [
                 randomScalingFactor(),
                 randomScalingFactor(),
@@ -113,7 +116,10 @@ var colorNames =  ['red', 'blue', 'green', 'purple'];
 				label: `${groupName}${groupNumber.length+1}`,
 				borderColor: newColor,
 				backgroundColor: color(newColor).alpha(0.2).rgbString(),
-				pointBackgroundColor: newColor,
+                pointBackgroundColor: newColor,                    
+                fill: true,
+                pointRadius: 30,
+                pointHoverRadius: 50,             
 				data: [],
 			};
 
