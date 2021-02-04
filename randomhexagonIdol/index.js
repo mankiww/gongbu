@@ -2,6 +2,7 @@ var randomScalingFactor = function() {
     return Math.floor(Math.random() * 6);
 };
 
+Chart.defaults.global.defaultFontSize = 30;
 
 const memory = document.querySelector("#memory");
 
@@ -63,12 +64,14 @@ var config = {
         },
         legend: {
             position: 'bottom',
+            labels: {fontSize: 14}
         },
         scale: {
+            pointLabels: {fontSize: 35},
             ticks: {
                 beginAtZero: true,
                 stepSize: 1,
-                max: 5
+                max: 5,
             }
         }
     }
