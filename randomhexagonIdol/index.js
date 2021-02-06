@@ -166,3 +166,12 @@ deleteBtn.addEventListener("click", function () {
     
 })
     
+
+const dwbtn = document.querySelector("#download");
+dwbtn.addEventListener("click", function() {
+    var image = window.myRadar.toBase64Image();
+    var a = document.createElement('a');
+    a.href = image;
+    a.download = 'chart.png';
+    a.click()
+})
