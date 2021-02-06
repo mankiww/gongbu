@@ -3,6 +3,7 @@ const nameInput = nameForm.querySelector("input");
 const nameSelect = document.querySelector("select");
 const colorForm = document.querySelector("#colorSelector");
 const colorInput = colorForm.querySelector("input");
+const deleteBtn = document.querySelector("#deleteDataset");
 
 var randomScalingFactor = function() {
     return Math.floor(Math.random() * 6);
@@ -115,7 +116,6 @@ nameForm.addEventListener("submit", function(event) {
 colorForm.addEventListener("submit", function(event){
     event.preventDefault();    
     var newColor = colorInput.value;
-    console.log(newColor);
     var dataIndex = config.data.datasets.findIndex(function(dataset){
         return dataset.label ===nameSelect.value
     }); 
@@ -154,5 +154,15 @@ var colorNames =  ['red', 'blue', 'green', 'purple'];
 
         });
         
-    const memo = document.querySelector("#memory");
+
+deleteBtn.addEventListener("click", function () {
+    var dataIndex = config.data.datasets.findIndex(function(dataset){
+        return dataset.label ===nameSelect.value
+    }); 
+    config.data.datasets.splice(dataIndex, 1);
+
+    window.myRadar.update();
+    paintSelect();
+    
+})
     
