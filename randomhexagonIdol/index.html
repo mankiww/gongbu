@@ -7,11 +7,18 @@
         <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
     </head>
     <body>
-        <div>
-            <canvas id="canvas" width="400px" height="400px"></canvas>
-        </div>                
-        <button id="randomizeData">Randomize Data</button>        
-        <button id="addDataset">Add Dataset</button>
+        <div id = "chart">
+            <canvas id="canvas" width='400' height="400"></canvas>
+        </div>               
+        <select></select>     
+        <button id="randomizeData">Randomize</button>
+        <button id="addDataset">Add</button>    <br>         
+        <form id ="nameCard">   
+            <input type="text" id="name" placeholder="이름"><button type="submit">수정</button>
+        </form>                       
+        <form id ="colorSelector">
+            <input type="text" placeholder="그래프 색상"><button type="submit">수정</button>
+        </form>
         <div id="memory"></div>
         <script src="index.js"></script>
     </body>

@@ -1,8 +1,36 @@
 body {
-    text-align: center;
+    text-align: center;    
+}
+
+canvas {
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
 div {
     position: relative;
-    margin: 0 auto;
+    margin: 5 auto;
+}
+
+#chart {
+    margin: 0;
+    margin-bottom: 20px;
+    height: 80%;
+    padding: 0 auto;
+}
+
+button {
+    margin-bottom: 10px;    
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+form {
+    margin: 0;
+}
+
+input {
+    width: 100px;
+    margin-bottom: 0px;
 }
