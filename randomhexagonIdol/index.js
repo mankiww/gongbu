@@ -67,6 +67,9 @@ var config = {
                 stepSize: 1,
                 max: 5,
             }
+        },
+        chartArea: {
+            backgroundColor: '#000000'
         }
     }
 };
@@ -169,9 +172,19 @@ deleteBtn.addEventListener("click", function () {
 
 const dwbtn = document.querySelector("#download");
 dwbtn.addEventListener("click", function() {
-    var image = window.myRadar.toBase64Image();
+    var image = canvas.toDataURL("image/png", 1.0);
     var a = document.createElement('a');
     a.href = image;
-    a.download = 'chart.png';
+    a.download = 'chart.jpg';
     a.click()
 })
+
+Chart.plugins.register({
+    beforeDraw: function(chartInstance, easing) {
+      var ctx = chartInstance.chart.ctx;
+      ctx.fillStyle = '#ffffff'
+  
+      var chartArea = chartInstance.chartArea;
+      ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+    }
+  });
