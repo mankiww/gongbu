@@ -43,7 +43,18 @@ var config = {
             pointRadius: 10,
             pointHoverRadius: 50,
             data: [3, 1, 4, 4, 5, 2]
-        }]
+        },
+        {
+            label: '스우',
+            backgroundColor: color('pink').alpha(0.2).rgbString(),
+            borderColor: 'pink',
+            pointBackgroundColor: 'pink',
+            fill: true,
+            pointRadius: 10,
+            pointHoverRadius: 50,
+            data: [3, 4, 2, 5, 5, 3]
+        }
+]
 
     },
     options: {
