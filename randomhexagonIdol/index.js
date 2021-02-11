@@ -16,7 +16,7 @@ const memory = document.querySelector("#memory");
 var colorNames = ['red', 'blue', 'green', 'purple'];
 
 var randomColorIndex = Math.floor(Math.random() * colorNames.length);
-var colorIndex = 'skyblue'
+var colorIndex = 'gray'
 var color = Chart.helpers.color;
 var groupName = "무명"
 
