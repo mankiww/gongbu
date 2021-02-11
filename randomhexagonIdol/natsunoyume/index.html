@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>夏の夢</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    </head>
+    <body>
+        <div id = "chart">
+            <canvas id="canvas" width='400' height="400"></canvas>            
+            <button id="download">download</button>  
+        </div>                     
+        <select></select> <button id="randomizeData">Randomize</button> <br>
+        <button id="addDataset" class="btn">add</button>
+        <button id="deleteDataset" class="btn">del</button>        
+        <form id ="nameCard">   
+            <input type="text" id="name" placeholder="이름"><button type="submit">수정</button>
+        </form>                       
+        <form id ="colorSelector">
+            <input type="text" placeholder="그래프 색상"><button type="submit">수정</button>
+        </form>
+        <script src="index.js"></script>
+    </body>
+</html>
